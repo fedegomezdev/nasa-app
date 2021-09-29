@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Head = () => {
+const Head: React.FC<{ title: string }> = ({ title }) => {
   return (
     <Helmet>
       <meta charSet="utf-8" />
-      <title>Mars Photos</title>
+      <title>{title}</title>
     </Helmet>
   );
 };
