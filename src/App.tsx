@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route component={HomePage} path="/" />
-        <Route component={SearchPage} path="/search/:camera/:sol?" />
+        <Route component={SearchPage} path="/search/:rover/:camera/:sol/:date?" />
         <Route component={ErrorPage} path="/:rest*" />
       </Switch>
     </div>

@@ -8,49 +8,55 @@ import { rovers } from '../../utils/rovers';
 type SearcherState = {
   rover: string;
   camera: string;
-  sol: number;
+  sol: string;
   date: string;
 };
 
 const Searcher = () => {
-  const [data, setData] = useState<SearcherState>({
+  const [state, setState] = useState<SearcherState>({
     camera: '',
-    sol: 0,
+    sol: '',
     date: '',
-    rover: 'curiosity'
+    rover: ''
   });
   const [_, pushLocation] = useLocation();
 
-  const handleChange = (event: any) => {
-    console.log(event);
-    setData({ ...data, [event.target.name]: event.target.value });
+  const handleText = (event: any) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleCamera = ({ value }) => {
+    setState({ ...state, camera: value });
+  };
+
+  const handleRover = ({ value }) => {
+    setState({ ...state, rover: value });
   };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(data);
-    alert('Enter');
-    //pushLocation(`/search/${data.camera}/${data.sol}`);
+    console.log(state);
+    pushLocation(`/search/${state.rover}/${state.camera}/${state.sol}/${state.date}`);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         placeholder="Sol date..."
-        onChange={handleChange}
+        onChange={handleText}
         type="number"
-        value={data.sol}
+        value={state.sol}
         name="sol"
       />
       <input
         placeholder="Earth Date..."
-        onChange={handleChange}
+        onChange={handleText}
         type="date"
-        value={data.date}
+        value={state.date}
         name="date"
       />
-      <Select options={camerasName} defaultValue={null} onChange={handleChange} />
-      <Select options={rovers} defaultValue={null} onChange={handleChange} />
+      <Select options={camerasName} defaultValue={null} onChange={handleCamera} />
+      <Select options={rovers} defaultValue={null} onChange={handleRover} />
       <Button>Search</Button>
     </form>
   );

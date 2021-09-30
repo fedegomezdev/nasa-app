@@ -10,6 +10,7 @@ export const getPhotos = async ({ rover, camera, date, sol, page }) => {
     url.searchParams.set('api_key', API_KEY);
     const response = await fetch(String(url));
     const photos = await response.json();
+    console.log(url.href);
     return photos;
   } catch (error) {
     console.log(error);
