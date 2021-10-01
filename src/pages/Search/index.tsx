@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
 import PhotoList from '../../components/PhotoList';
-import Searcher from '../../components/Searcher';
 import { useMarsPhotos } from '../../hooks/useMarsPhotos';
 import { useQuery } from '../../hooks/useQuery';
 
@@ -14,9 +13,8 @@ const SearchPage = () => {
   const { data, loading, error } = useMarsPhotos({ rover, camera, sol, date });
   return (
     <>
-      <h3>Searcher PAGE</h3>
       <Header />
-      <Searcher />
+      <h4>Search Results</h4>
       <PhotoList photos={data} isError={error} isLoading={loading} />
     </>
   );

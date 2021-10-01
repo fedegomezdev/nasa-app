@@ -5,8 +5,8 @@ export const SearcherContainer = styled.div`
   border-radius: 5px;
   background-color: ${theme.white};
   padding: 20px;
-  width: 500px;
-  margin: 40px;
+  width: 100%;
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +15,10 @@ export const SearcherContainer = styled.div`
 export const Title = styled.h3`
   color: ${theme.secondary};
   margin: 20px;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
 `;
 
 export const Input = styled.input`

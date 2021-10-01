@@ -9,4 +9,14 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 120px 0 150px;
+`;
+
+export const TitleContainer = styled.div`
+  margin-bottom: 70px;
+  text-align: center;
+`;
+
+export const RegularFont = styled.span`
+  font-weight: 400;
 `;

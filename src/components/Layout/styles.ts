@@ -10,6 +10,6 @@ export const GlobalStyle = createGlobalStyle`
         }
 
     body {
-          font-family: 'Varela Round', sans-serif !important;
+          font-family: Montserrat, sans-serif !important;
         }
 `;

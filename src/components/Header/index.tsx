@@ -1,20 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../resources/images/NASA.png';
 import Searcher from '../Searcher';
-import { HeaderContainer } from './styles';
+import { HeaderContainer, RegularFont, TitleContainer } from './styles';
 
 const Header = () => {
   return (
     <header>
       <HeaderContainer>
-        <div style={{ marginTop: '20px', alignItems: 'center' }}>
+        <TitleContainer>
           <h2>
-            <b>Mars</b> Explorer
+            Mars <RegularFont>Explorer</RegularFont>
           </h2>
-          <h3>Search Photos</h3>
-        </div>
-
+          <h3>
+            <RegularFont>Search Photos</RegularFont>
+          </h3>
+        </TitleContainer>
         <Searcher />
       </HeaderContainer>
     </header>

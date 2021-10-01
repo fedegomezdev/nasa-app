@@ -5,7 +5,7 @@ import Button from '../Button';
 import { camerasName } from '../../utils/camerasName';
 import { rovers } from '../../utils/rovers';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { Input, SearcherContainer, Title } from './styles';
+import { Input, SearcherContainer, Title, InputContainer } from './styles';
 
 type SearcherState = {
   rover: string;
@@ -66,7 +66,7 @@ const Searcher = () => {
           onChange={handleCamera}
           placeholder="Camera"
         />
-        <div style={{ display: 'flex' }}>
+        <InputContainer>
           <Input
             placeholder="Sol date..."
             onChange={handleText}
@@ -74,7 +74,6 @@ const Searcher = () => {
             value={state.sol}
             name="sol"
           />
-
           <Input
             placeholder="Earth Date..."
             onChange={handleText}
@@ -82,8 +81,7 @@ const Searcher = () => {
             value={state.date}
             name="date"
           />
-        </div>
-
+        </InputContainer>
         <Button content="Search" />
       </form>
     </SearcherContainer>
