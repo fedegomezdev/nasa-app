@@ -3,6 +3,7 @@ import { IPhoto } from '../../interfaces/photo';
 import { isEmpty } from '../../utils/emptyArray';
 import Photo from '../Photo';
 import SkeletonLoader from '../Skeleton';
+import { PhotoListContainer } from './styles';
 
 type PhotolistProps = {
   photos: IPhoto[];
@@ -14,7 +15,7 @@ const PhotoList: FunctionComponent<PhotolistProps> = ({ photos, isError, isLoadi
   if (isError) return <p>Error</p>;
   if (isLoading) return <SkeletonLoader />;
   return (
-    <div>
+    <PhotoListContainer>
       {!isEmpty(photos) ? (
         photos.map((photo: IPhoto) => (
           <Photo
@@ -29,7 +30,7 @@ const PhotoList: FunctionComponent<PhotolistProps> = ({ photos, isError, isLoadi
       ) : (
         <p>No hay fotos</p>
       )}
-    </div>
+    </PhotoListContainer>
   );
 };
 

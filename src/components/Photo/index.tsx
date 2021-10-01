@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ICamera } from '../../interfaces/camera';
 import ModalImage from 'react-modal-image';
+import { PhotoContainer } from './styles';
 
 type PhotoProps = {
   id: number;
@@ -12,10 +13,14 @@ type PhotoProps = {
 
 const Photo: FunctionComponent<PhotoProps> = (props) => {
   return (
-    <div style={{ height: '350px', width: '150px', border: 'line' }}>
-      <h2>{props.earth_date}</h2>
-      <ModalImage small={props.image} large={props.image} alt="Mars Photo" loading="lazy" />
-    </div>
+    <PhotoContainer>
+      <ModalImage
+        small={props.image}
+        large={props.image}
+        alt="Mars Photo"
+        style={{ aspectRatio: '16/9' }}
+      />
+    </PhotoContainer>
   );
 };
 

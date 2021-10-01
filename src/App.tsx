@@ -1,20 +1,21 @@
 import React from 'react';
-import { Route, Switch } from 'wouter';
-import Header from './components/Header';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import SearchPage from './pages/Search';
+import Layout from './components/Layout';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Switch>
-        <Route component={HomePage} path="/" />
-        <Route component={SearchPage} path="/search/:rover/:camera/:sol/:date?" />
-        <Route component={ErrorPage} path="/:rest*" />
-      </Switch>
-    </div>
+    <Router>
+      <Layout>
+        <Switch>
+          <Route component={HomePage} path="/" exact />
+          <Route component={SearchPage} path="/search" />
+          <Route component={ErrorPage} path="/:rest*" />
+        </Switch>
+      </Layout>
+    </Router>
   );
 };
 

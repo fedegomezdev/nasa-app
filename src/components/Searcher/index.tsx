@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation } from 'wouter';
 import Select from 'react-select';
+import { useHistory } from 'react-router-dom';
 import Button from '../Button';
 import { camerasName } from '../../utils/camerasName';
 import { rovers } from '../../utils/rovers';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import { Input, SearcherContainer } from './styles';
 
 type SearcherState = {
   rover: string;
@@ -19,7 +21,9 @@ const Searcher = () => {
     date: '',
     rover: ''
   });
-  const [_, pushLocation] = useLocation();
+
+  const history = useHistory();
+  const [storedValue, setIntoLocalStorage] = useLocalStorage('last', '');
 
   const handleText = (event: any) => {
     setState({ ...state, [event.target.name]: event.target.value });
@@ -35,30 +39,45 @@ const Searcher = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(state);
-    pushLocation(`/search/${state.rover}/${state.camera}/${state.sol}/${state.date}`);
+    const query = new URLSearchParams([
+      ['rover', state.rover],
+      ['camera', state.camera],
+      ['sol', state.sol],
+      ['date', state.date]
+    ]);
+    const route = `/search?${query}`;
+    setIntoLocalStorage(route);
+    history.push(route);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        placeholder="Sol date..."
-        onChange={handleText}
-        type="number"
-        value={state.sol}
-        name="sol"
-      />
-      <input
-        placeholder="Earth Date..."
-        onChange={handleText}
-        type="date"
-        value={state.date}
-        name="date"
-      />
-      <Select options={camerasName} defaultValue={null} onChange={handleCamera} />
-      <Select options={rovers} defaultValue={null} onChange={handleRover} />
-      <Button>Search</Button>
-    </form>
+    <SearcherContainer>
+      <form onSubmit={handleSubmit}>
+        <label>Rover</label>
+        <Select options={rovers} defaultValue={null} onChange={handleRover} />
+        <label>Camera</label>
+        <Select options={camerasName} defaultValue={null} onChange={handleCamera} />
+        <label>Sol Date</label>
+        <Input
+          placeholder="Sol date..."
+          onChange={handleText}
+          type="number"
+          value={state.sol}
+          name="sol"
+        />
+
+        <label>Earth Date</label>
+        <Input
+          placeholder="Earth Date..."
+          onChange={handleText}
+          type="date"
+          value={state.date}
+          name="date"
+        />
+
+        <Button>Search</Button>
+      </form>
+    </SearcherContainer>
   );
 };
 
