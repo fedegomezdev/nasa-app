@@ -12,7 +12,6 @@ const HomePage = () => {
     <>
       <Head title="Mars Photos" />
       <Header />
-      <Searcher />
       <h4>Today Photos</h4>
       <PhotoList photos={data} isError={error} isLoading={loading} />
       <LastSearch />

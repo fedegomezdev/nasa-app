@@ -5,7 +5,7 @@ import Button from '../Button';
 import { camerasName } from '../../utils/camerasName';
 import { rovers } from '../../utils/rovers';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { Input, SearcherContainer } from './styles';
+import { Input, SearcherContainer, Title } from './styles';
 
 type SearcherState = {
   rover: string;
@@ -52,30 +52,39 @@ const Searcher = () => {
 
   return (
     <SearcherContainer>
+      <Title>Refine your search</Title>
       <form onSubmit={handleSubmit}>
-        <label>Rover</label>
-        <Select options={rovers} defaultValue={null} onChange={handleRover} />
-        <label>Camera</label>
-        <Select options={camerasName} defaultValue={null} onChange={handleCamera} />
-        <label>Sol Date</label>
-        <Input
-          placeholder="Sol date..."
-          onChange={handleText}
-          type="number"
-          value={state.sol}
-          name="sol"
+        <Select
+          options={rovers}
+          defaultValue={null}
+          onChange={handleRover}
+          placeholder="Rover"
         />
-
-        <label>Earth Date</label>
-        <Input
-          placeholder="Earth Date..."
-          onChange={handleText}
-          type="date"
-          value={state.date}
-          name="date"
+        <Select
+          options={camerasName}
+          defaultValue={null}
+          onChange={handleCamera}
+          placeholder="Camera"
         />
+        <div style={{ display: 'flex' }}>
+          <Input
+            placeholder="Sol date..."
+            onChange={handleText}
+            type="number"
+            value={state.sol}
+            name="sol"
+          />
 
-        <Button>Search</Button>
+          <Input
+            placeholder="Earth Date..."
+            onChange={handleText}
+            type="date"
+            value={state.date}
+            name="date"
+          />
+        </div>
+
+        <Button content="Search" />
       </form>
     </SearcherContainer>
   );

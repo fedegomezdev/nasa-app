@@ -1,8 +1,8 @@
 import React from 'react';
 import { ButtonContainer } from './styles';
 
-const Button = ({ children }) => {
-  return <ButtonContainer>{children}</ButtonContainer>;
+const Button = ({ content }) => {
+  return <ButtonContainer>{content}</ButtonContainer>;
 };
 
 export default Button;

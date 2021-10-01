@@ -1,9 +1,20 @@
 import styled from 'styled-components';
+import { theme } from '../../common/theme';
 
 export const SearcherContainer = styled.div`
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: ${theme.white};
   padding: 20px;
+  width: 500px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Title = styled.h3`
+  color: ${theme.secondary};
+  margin: 20px;
 `;
 
 export const Input = styled.input`
