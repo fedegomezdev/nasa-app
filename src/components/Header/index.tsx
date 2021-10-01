@@ -7,12 +7,12 @@ const Header = () => {
     <header>
       <HeaderContainer>
         <TitleContainer>
-          <h2>
+          <h1>
             Mars <RegularFont>Explorer</RegularFont>
-          </h2>
-          <h3>
+          </h1>
+          <h2>
             <RegularFont>Search Photos</RegularFont>
-          </h3>
+          </h2>
         </TitleContainer>
         <Searcher />
       </HeaderContainer>

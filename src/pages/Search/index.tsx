@@ -14,7 +14,7 @@ const SearchPage = () => {
   return (
     <>
       <Header />
-      <h4>Search Results</h4>
+      <h3 style={{ textAlign: 'center', margin: '20px 0 20px' }}>SEARCH RESULTS</h3>
       <PhotoList photos={data} isError={error} isLoading={loading} />
     </>
   );

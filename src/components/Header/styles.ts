@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   text-align: center;
 `;
 

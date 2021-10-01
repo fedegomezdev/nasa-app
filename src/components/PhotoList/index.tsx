@@ -28,7 +28,7 @@ const PhotoList: FunctionComponent<PhotolistProps> = ({ photos, isError, isLoadi
           />
         ))
       ) : (
-        <p>No hay fotos</p>
+        <p>Photos not founded</p>
       )}
     </PhotoListContainer>
   );
