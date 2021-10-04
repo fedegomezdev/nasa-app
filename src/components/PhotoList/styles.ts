@@ -6,3 +6,7 @@ export const PhotoListContainer = styled.div`
   gap: 20px;
   margin: 50px;
 `;
+
+export const ErrorText = styled.h3`
+  text-align: center;
+`;

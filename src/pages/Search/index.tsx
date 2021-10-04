@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header';
 import PhotoList from '../../components/PhotoList';
+import { Title } from '../../components/Searcher/styles';
 import { useMarsPhotos } from '../../hooks/useMarsPhotos';
 import { useQuery } from '../../hooks/useQuery';
 
@@ -14,7 +15,7 @@ const SearchPage = () => {
   return (
     <>
       <Header />
-      <h3 style={{ textAlign: 'center', margin: '20px 0 20px' }}>SEARCH RESULTS</h3>
+      <Title>SEARCH RESULTS</Title>
       <PhotoList photos={data} isError={error} isLoading={loading} />
     </>
   );

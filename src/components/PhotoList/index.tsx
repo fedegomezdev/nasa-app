@@ -3,7 +3,7 @@ import { IPhoto } from '../../interfaces/photo';
 import { isEmpty } from '../../utils/emptyArray';
 import Photo from '../Photo';
 import SkeletonLoader from '../Skeleton';
-import { PhotoListContainer } from './styles';
+import { ErrorText, PhotoListContainer } from './styles';
 
 type PhotolistProps = {
   photos: IPhoto[];
@@ -12,7 +12,7 @@ type PhotolistProps = {
 };
 
 const PhotoList: FunctionComponent<PhotolistProps> = ({ photos, isError, isLoading }) => {
-  if (isError) return <p>Error</p>;
+  if (isError) return <ErrorText>Error</ErrorText>;
   if (isLoading) return <SkeletonLoader />;
   return (
     <PhotoListContainer>
@@ -28,7 +28,7 @@ const PhotoList: FunctionComponent<PhotolistProps> = ({ photos, isError, isLoadi
           />
         ))
       ) : (
-        <p>Photos not founded</p>
+        <ErrorText>Photos not founded</ErrorText>
       )}
     </PhotoListContainer>
   );

@@ -5,7 +5,13 @@ import Button from '../Button';
 import { camerasName } from '../../utils/camerasName';
 import { rovers } from '../../utils/rovers';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { Input, SearcherContainer, Title, InputContainer } from './styles';
+import {
+  Input,
+  SearcherContainer,
+  Title,
+  InputContainer,
+  SelectContainer
+} from './styles';
 
 type SearcherState = {
   rover: string;
@@ -54,18 +60,24 @@ const Searcher = () => {
     <SearcherContainer>
       <Title>Refine your search</Title>
       <form onSubmit={handleSubmit}>
-        <Select
-          options={rovers}
-          defaultValue={null}
-          onChange={handleRover}
-          placeholder="Rover"
-        />
-        <Select
-          options={camerasName}
-          defaultValue={null}
-          onChange={handleCamera}
-          placeholder="Camera"
-        />
+        <SelectContainer>
+          <Select
+            options={rovers}
+            defaultValue={null}
+            onChange={handleRover}
+            placeholder="Rover"
+          />
+        </SelectContainer>
+
+        <SelectContainer>
+          <Select
+            options={camerasName}
+            defaultValue={null}
+            onChange={handleCamera}
+            placeholder="Camera"
+          />
+        </SelectContainer>
+
         <InputContainer>
           <Input
             placeholder="Sol date..."
@@ -74,6 +86,7 @@ const Searcher = () => {
             value={state.sol}
             name="sol"
           />
+
           <Input
             placeholder="Earth Date..."
             onChange={handleText}

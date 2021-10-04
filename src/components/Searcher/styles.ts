@@ -23,7 +23,7 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   width: 100%;
   padding: 12px 20px;
-  margin-top: 20px;
+  margin: 0 15px 30px;
   display: inline-block;
   border-radius: 4px;
   box-sizing: border-box;
@@ -32,4 +32,8 @@ export const Input = styled.input`
     border-color: ${theme.primary};
     box-shadow: 0px 0px 2px red;
   }
+`;
+
+export const SelectContainer = styled.div`
+  margin: 0 15px 30px;
 `;
