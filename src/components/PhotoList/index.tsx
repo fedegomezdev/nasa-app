@@ -17,9 +17,9 @@ const PhotoList: FunctionComponent<PhotolistProps> = ({ photos, isError, isLoadi
   return (
     <PhotoListContainer>
       {!isEmpty(photos) ? (
-        photos.map((photo: IPhoto) => (
+        photos.map((photo: IPhoto, index) => (
           <Photo
-            key={photo.id}
+            key={index}
             id={photo.id}
             image={photo.img_src}
             sol={photo.sol}

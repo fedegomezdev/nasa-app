@@ -15,6 +15,9 @@ export const HeaderContainer = styled.div`
 export const TitleContainer = styled.div`
   margin-bottom: 50px;
   text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const RegularFont = styled.span`

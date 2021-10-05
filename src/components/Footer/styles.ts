@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../common/theme';
 
 export const FooterContainer = styled.footer`
   margin-top: 4rem;
@@ -7,7 +8,7 @@ export const FooterContainer = styled.footer`
 
 export const Description = styled.p`
   text-align: center;
-  color: #000;
+  color: ${theme.black};
   text-decoration: none;
   font-weight: bold;
 `;

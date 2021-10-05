@@ -1,12 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import Searcher from '../Searcher';
 import { HeaderContainer, RegularFont, TitleContainer } from './styles';
 
 const Header = () => {
+  const history = useHistory();
+  const goHome = () => history.push('/');
+
   return (
     <header>
       <HeaderContainer>
-        <TitleContainer>
+        <TitleContainer onClick={goHome}>
           <h1>
             Mars <RegularFont>Explorer</RegularFont>
           </h1>

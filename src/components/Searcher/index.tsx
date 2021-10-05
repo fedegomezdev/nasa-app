@@ -29,7 +29,7 @@ const Searcher = () => {
   });
 
   const history = useHistory();
-  const [storedValue, setIntoLocalStorage] = useLocalStorage('last', '');
+  const [_, setIntoLocalStorage] = useLocalStorage('last', '');
 
   const handleText = (event: any) => {
     setState({ ...state, [event.target.name]: event.target.value });
@@ -95,7 +95,7 @@ const Searcher = () => {
             name="date"
           />
         </InputContainer>
-        <Button content="Search" />
+        <Button content="SEARCH" />
       </form>
     </SearcherContainer>
   );

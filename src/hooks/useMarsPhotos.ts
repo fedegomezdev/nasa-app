@@ -16,20 +16,24 @@ export const useMarsPhotos = ({
   rover = 'curiosity',
   camera = 'fhaz',
   date = today,
-  sol = null,
-  page = '1'
+  sol = null
 }: queryParams) => {
   const [data, setData] = useState<IPhoto[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     getPhotos({ rover, camera, date, sol, page })
-      .then((data) => setData(data.photos))
+      .then((data) => {
+        setData((prevData) => prevData.concat(data.photos));
+        setHasMore(data.photos.length === 25);
+      })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, [rover, camera, date, sol, page]);
 
-  return { data, loading, error };
+  return { data, loading, error, hasMore, setPage };
 };

@@ -6,3 +6,8 @@ export const Title = styled.h3`
   margin: 20px 0 20px;
   text-align: center;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;

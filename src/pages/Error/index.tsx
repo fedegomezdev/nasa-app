@@ -2,20 +2,21 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import Head from '../../components/Head';
 import image from '../../resources/images/notFound.png';
+import { ErrorContainer, ErrorImage } from './styles';
 
 const ErrorPage = () => {
   const history = useHistory();
 
-  const redirect = () => {
+  const goHome = () => {
     history.push('/');
   };
 
   return (
     <div>
       <Head title="Error 404" />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <img src={image} onClick={redirect} style={{ maxWidth: '660px' }} />
-      </div>
+      <ErrorContainer>
+        <ErrorImage src={image} onClick={goHome} />
+      </ErrorContainer>
     </div>
   );
 };

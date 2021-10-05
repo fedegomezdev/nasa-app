@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 import { theme } from '../../common/theme';
 
-export const ButtonContainer = styled.button`
-  width: 100%;
+interface ButtonProps {
+  width: string;
+}
+
+export const ButtonContainer = styled.button<ButtonProps>`
+  width: ${(props) => props.width || '100%'};
   background-color: ${theme.primary};
   color: white;
   padding: 14px 20px;
